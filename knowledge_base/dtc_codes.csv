@@ -1,0 +1,40 @@
+code,description,system,severity,common_causes
+P0101,Mass or Volume Air Flow Sensor A Circuit Range/Performance,Engine - Air Intake,medium,Dirty or contaminated MAF sensor; Intake air leak after the MAF; Clogged air filter; Damaged MAF wiring or connector
+P0113,Intake Air Temperature Sensor 1 Circuit High,Engine - Air Intake,low,Open circuit in IAT sensor wiring; Disconnected IAT connector; Failed IAT sensor
+P0117,Engine Coolant Temperature Sensor 1 Circuit Low,Engine - Cooling,medium,Shorted ECT sensor; ECT signal wire shorted to ground; Failed ECT sensor
+P0118,Engine Coolant Temperature Sensor 1 Circuit High,Engine - Cooling,medium,Open ECT sensor circuit; Corroded ECT connector; Failed ECT sensor
+P0128,Coolant Thermostat (Coolant Temperature Below Thermostat Regulating Temperature),Engine - Cooling,low,Thermostat stuck open; Faulty ECT sensor; Low coolant level
+P0131,O2 Sensor Circuit Low Voltage (Bank 1 Sensor 1),Emissions - Oxygen Sensors,medium,Exhaust leak before the sensor; Failed upstream O2 sensor; Signal wire shorted to ground; Very lean condition
+P0133,O2 Sensor Circuit Slow Response (Bank 1 Sensor 1),Emissions - Oxygen Sensors,medium,Aged or contaminated upstream O2 sensor; Exhaust leak; Engine running lean or rich
+P0135,O2 Sensor Heater Circuit (Bank 1 Sensor 1),Emissions - Oxygen Sensors,low,Open O2 heater element; Blown heater fuse; Damaged heater wiring
+P0171,System Too Lean (Bank 1),Engine - Fuel Trim,medium,Vacuum leak; Dirty MAF sensor; Weak fuel pump or clogged fuel filter; Restricted fuel injectors; Exhaust leak upstream of O2 sensor
+P0172,System Too Rich (Bank 1),Engine - Fuel Trim,medium,Leaking fuel injector; Excessive fuel pressure; Faulty MAF sensor reading high; Faulty ECT sensor
+P0174,System Too Lean (Bank 2),Engine - Fuel Trim,medium,Vacuum leak; Dirty MAF sensor; Low fuel pressure; Intake manifold gasket leak
+P0300,Random/Multiple Cylinder Misfire Detected,Engine - Ignition,high,Worn spark plugs; Failed ignition coil; Vacuum leak; Low fuel pressure; Low compression
+P0301,Cylinder 1 Misfire Detected,Engine - Ignition,high,Failed cylinder 1 ignition coil; Worn cylinder 1 spark plug; Clogged cylinder 1 injector; Low cylinder 1 compression
+P0302,Cylinder 2 Misfire Detected,Engine - Ignition,high,Failed cylinder 2 ignition coil; Worn cylinder 2 spark plug; Clogged cylinder 2 injector; Low cylinder 2 compression
+P0303,Cylinder 3 Misfire Detected,Engine - Ignition,high,Failed cylinder 3 ignition coil; Worn cylinder 3 spark plug; Clogged cylinder 3 injector; Low cylinder 3 compression
+P0304,Cylinder 4 Misfire Detected,Engine - Ignition,high,Failed cylinder 4 ignition coil; Worn cylinder 4 spark plug; Clogged cylinder 4 injector; Low cylinder 4 compression
+P0325,Knock Sensor 1 Circuit (Bank 1 or Single Sensor),Engine - Ignition,medium,Failed knock sensor; Damaged knock sensor wiring; Incorrect sensor torque
+P0335,Crankshaft Position Sensor A Circuit,Engine - Ignition,high,Failed CKP sensor; Damaged reluctor ring; CKP wiring fault
+P0340,Camshaft Position Sensor A Circuit (Bank 1 or Single Sensor),Engine - Ignition,high,Failed CMP sensor; CMP wiring fault; Timing chain or belt stretched or jumped
+P0401,Exhaust Gas Recirculation A Flow Insufficient Detected,Emissions - EGR,medium,Carbon-clogged EGR passages; Stuck EGR valve; Faulty EGR vacuum solenoid
+P0420,Catalyst System Efficiency Below Threshold (Bank 1),Emissions - Catalyst,medium,Degraded catalytic converter; Faulty downstream O2 sensor; Exhaust leak; Engine misfire damaging catalyst
+P0442,Evaporative Emission System Leak Detected (Small Leak),Emissions - EVAP,low,Loose or worn fuel cap seal; Cracked EVAP hose; Leaking purge or vent valve
+P0455,Evaporative Emission System Leak Detected (Large Leak),Emissions - EVAP,low,Missing or loose fuel cap; Disconnected EVAP hose; Vent valve stuck open
+P0456,Evaporative Emission System Leak Detected (Very Small Leak),Emissions - EVAP,low,Fuel cap seal; Small crack in EVAP hose or canister
+P0500,Vehicle Speed Sensor A,Drivetrain,medium,Failed vehicle speed sensor; Damaged VSS wiring; Faulty wheel speed sensor input on ABS-sourced speed
+P0505,Idle Air Control System,Engine - Air Intake,medium,Carbon-fouled throttle body; Failed idle air control valve; Vacuum leak
+P0562,System Voltage Low,Electrical - Charging,medium,Weak battery; Failing alternator; Loose or corroded battery terminals; Slipping drive belt
+P0700,Transmission Control System (MIL Request),Transmission,medium,TCM has stored its own fault code - read TCM codes for the root cause
+P0715,Input/Turbine Speed Sensor A Circuit,Transmission,medium,Failed input speed sensor; Damaged sensor wiring; Low or contaminated transmission fluid
+P0741,Torque Converter Clutch Solenoid Circuit Performance/Stuck Off,Transmission,medium,Faulty TCC solenoid; Worn torque converter; Low or degraded transmission fluid
+C0035,Left Front Wheel Speed Sensor Circuit,Chassis - ABS,high,Damaged wheel speed sensor; Debris on tone ring; Broken sensor wiring near the wheel; Excessive wheel bearing play
+C0040,Right Front Wheel Speed Sensor Circuit,Chassis - ABS,high,Damaged wheel speed sensor; Debris on tone ring; Broken sensor wiring near the wheel; Excessive wheel bearing play
+B0001,Driver Frontal Stage 1 Deployment Control,Body - Airbag (SRS),critical,Open or high resistance in driver airbag circuit; Faulty clock spring; Connector fault under steering column
+U0001,High Speed CAN Communication Bus,Network - CAN,high,Open or shorted CAN_H/CAN_L wiring; Missing or failed termination resistor; Module pulling the bus down
+U0100,Lost Communication With ECM/PCM A,Network - CAN,high,ECM power or ground fault; CAN wiring fault to ECM; Failed ECM
+U0101,Lost Communication With TCM,Network - CAN,high,TCM power or ground fault; CAN wiring fault to TCM; Failed TCM
+U0121,Lost Communication With Anti-Lock Brake System (ABS) Control Module,Network - CAN,high,ABS module power or ground fault; CAN wiring fault to ABS module; Failed ABS module
+P0A80,Replace Hybrid Battery Pack,High Voltage - Battery,critical,Cell or module voltage imbalance; Aged high-voltage battery; Battery cooling fault
+P0AA6,Hybrid Battery Voltage System Isolation Fault,High Voltage - Battery,critical,Insulation breakdown in HV cable or component; Coolant intrusion in HV component; Damaged HV connector

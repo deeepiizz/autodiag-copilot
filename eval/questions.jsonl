@@ -1,0 +1,30 @@
+{"q": "Fuel trims are +20% at idle but almost normal at 2500 rpm, where should I look?", "relevant": ["fuel_trim_lean_rich#diagnosing-a-lean-code-p0171-p0174", "fuel_trim_lean_rich#finding-vacuum-leaks"]}
+{"q": "How do I find an intake vacuum leak?", "relevant": ["fuel_trim_lean_rich#finding-vacuum-leaks"]}
+{"q": "Can I clean a mass airflow sensor and with what?", "relevant": ["fuel_trim_lean_rich#maf-sensor-contamination"]}
+{"q": "Negative fuel trims below -10 percent, what causes that?", "relevant": ["fuel_trim_lean_rich#diagnosing-a-rich-code-p0172", "dtc:P0172"]}
+{"q": "One cylinder keeps misfiring, how do I tell if it is the coil or the plug?", "relevant": ["misfire_diagnosis#isolating-the-cylinder"]}
+{"q": "Check engine light is flashing, is it safe to drive?", "relevant": ["misfire_diagnosis#symptoms"]}
+{"q": "Misfires on all cylinders at random", "relevant": ["misfire_diagnosis#random-misfire-p0300", "dtc:P0300"]}
+{"q": "How do I interpret a compression test result?", "relevant": ["misfire_diagnosis#compression-and-mechanical-checks"]}
+{"q": "What does P0420 mean and should I replace the converter?", "relevant": ["catalyst_o2_sensors#catalyst-efficiency-p0420", "dtc:P0420"]}
+{"q": "Downstream oxygen sensor is switching just like the upstream one", "relevant": ["catalyst_o2_sensors#catalyst-efficiency-p0420", "catalyst_o2_sensors#upstream-vs-downstream-sensors"]}
+{"q": "O2 sensor heater resistance test", "relevant": ["catalyst_o2_sensors#heater-circuit-faults-p0135"]}
+{"q": "lambda sensor voltage switching too slowly", "relevant": ["catalyst_o2_sensors#o2-sensor-response-tests", "dtc:P0133"]}
+{"q": "Large evap leak code after refuelling", "relevant": ["evap_system#leak-codes", "dtc:P0455"]}
+{"q": "How do I smoke test the EVAP system?", "relevant": ["evap_system#smoke-testing"]}
+{"q": "Rough idle right after filling up the tank", "relevant": ["evap_system#purge-and-vent-valves"]}
+{"q": "Resistance between CAN high and CAN low reads 120 ohm", "relevant": ["can_bus_diagnostics#termination-check"]}
+{"q": "Multiple modules report lost communication codes at once", "relevant": ["can_bus_diagnostics#lost-communication-codes", "dtc:U0001"]}
+{"q": "Expected voltage on CAN_H and CAN_L lines", "relevant": ["can_bus_diagnostics#voltage-check"]}
+{"q": "U0121 no communication with the ABS module", "relevant": ["dtc:U0121", "can_bus_diagnostics#lost-communication-codes"]}
+{"q": "Front left wheel speed reads zero while the others read 40", "relevant": ["abs_wheel_speed#wheel-speed-sensor-codes", "dtc:C0035"]}
+{"q": "How do I test a Hall effect wheel speed sensor?", "relevant": ["abs_wheel_speed#active-vs-passive-sensors"]}
+{"q": "Is the car safe to drive with the ABS light on?", "relevant": ["abs_wheel_speed#safety-note"]}
+{"q": "Hybrid battery cell voltage spread is 0.4 V, is the pack bad?", "relevant": ["hv_battery_safety#pack-degradation-p0a80", "dtc:P0A80"]}
+{"q": "Insulation resistance fault on an EV", "relevant": ["hv_battery_safety#isolation-faults-p0aa6", "dtc:P0AA6"]}
+{"q": "What PPE do I need to work on orange high voltage cables?", "relevant": ["hv_battery_safety#safety-first"]}
+{"q": "Alternator output voltage specification", "relevant": ["charging_system#alternator-output"]}
+{"q": "Resting battery voltage 12.1 V, is it charged?", "relevant": ["charging_system#battery-test"]}
+{"q": "System voltage low code and random communication faults", "relevant": ["charging_system#system-voltage-low-p0562", "dtc:P0562"]}
+{"q": "Thermostat stuck open code", "relevant": ["dtc:P0128"]}
+{"q": "Crank sensor failure, engine cranks but will not start", "relevant": ["dtc:P0335"]}

@@ -1,0 +1,96 @@
+{
+  "_note": "Simulated vehicles for demos and tests. VIN-style IDs are fictional.",
+  "vehicles": {
+    "DEMO-001": {
+      "description": "2017 petrol sedan, 4-cylinder, 142,000 km",
+      "symptoms": "Rough idle, hesitation when accelerating, check-engine lamp on",
+      "active_dtcs": [
+        "P0171",
+        "P0300"
+      ],
+      "freeze_frame": {
+        "EngineRPM": 780,
+        "CoolantTemp_degC": 88,
+        "VehicleSpeed_kmh": 0,
+        "LTFT_B1_pct": 18.0
+      },
+      "can_log": [
+        {
+          "id": "0x0C8",
+          "data": "300C8000D200"
+        },
+        {
+          "id": "0x2F0",
+          "data": "88978080"
+        },
+        {
+          "id": "0x5A0",
+          "data": "8D3A"
+        }
+      ]
+    },
+    "DEMO-002": {
+      "description": "2019 petrol SUV with ABS and stability control, 88,000 km",
+      "symptoms": "ABS and traction-control warning lamps on after driving through deep puddles",
+      "active_dtcs": [
+        "C0035"
+      ],
+      "freeze_frame": {
+        "VehicleSpeed_kmh": 42
+      },
+      "can_log": [
+        {
+          "id": "0x1A0",
+          "data": "0000861072107C10"
+        },
+        {
+          "id": "0x5A0",
+          "data": "8C34"
+        }
+      ]
+    },
+    "DEMO-003": {
+      "description": "2014 full hybrid hatchback, 230,000 km",
+      "symptoms": "Reduced power, hybrid system warning, fan noise from rear seat area",
+      "active_dtcs": [
+        "P0A80"
+      ],
+      "freeze_frame": {
+        "SOC_pct": 41,
+        "MaxCellTemp_degC": 58
+      },
+      "can_log": [
+        {
+          "id": "0x3B0",
+          "data": "E007A0FE52622A"
+        },
+        {
+          "id": "0x5A0",
+          "data": "8B46"
+        }
+      ]
+    },
+    "DEMO-004": {
+      "description": "2020 petrol hatchback, 61,000 km",
+      "symptoms": "Several warning lamps flicker; ABS lamp on; occasional no-start",
+      "active_dtcs": [
+        "U0121",
+        "U0001",
+        "P0562"
+      ],
+      "freeze_frame": {
+        "BatteryVoltage12V": 11.4
+      },
+      "can_log": [
+        {
+          "id": "0x0C8",
+          "data": "400B82000401"
+        },
+        {
+          "id": "0x5A0",
+          "data": "722D"
+        }
+      ]
+    }
+  }
+}

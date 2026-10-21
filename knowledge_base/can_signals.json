@@ -1,0 +1,54 @@
+{
+  "_note": "Simplified signal database for a fictional demo vehicle (DBC-style, little-endian). Not a real OEM definition.",
+  "messages": {
+    "0x0C8": {
+      "name": "EngineData",
+      "sender": "ECM",
+      "signals": [
+        {"name": "EngineRPM", "start_bit": 0, "length": 16, "factor": 0.25, "offset": 0, "signed": false, "unit": "rpm"},
+        {"name": "CoolantTemp", "start_bit": 16, "length": 8, "factor": 1, "offset": -40, "signed": false, "unit": "degC"},
+        {"name": "ThrottlePos", "start_bit": 24, "length": 8, "factor": 0.392157, "offset": 0, "signed": false, "unit": "%"},
+        {"name": "MAF", "start_bit": 32, "length": 16, "factor": 0.01, "offset": 0, "signed": false, "unit": "g/s"}
+      ]
+    },
+    "0x1A0": {
+      "name": "WheelSpeeds",
+      "sender": "ABS",
+      "signals": [
+        {"name": "WheelSpeed_FL", "start_bit": 0, "length": 16, "factor": 0.01, "offset": 0, "signed": false, "unit": "km/h"},
+        {"name": "WheelSpeed_FR", "start_bit": 16, "length": 16, "factor": 0.01, "offset": 0, "signed": false, "unit": "km/h"},
+        {"name": "WheelSpeed_RL", "start_bit": 32, "length": 16, "factor": 0.01, "offset": 0, "signed": false, "unit": "km/h"},
+        {"name": "WheelSpeed_RR", "start_bit": 48, "length": 16, "factor": 0.01, "offset": 0, "signed": false, "unit": "km/h"}
+      ]
+    },
+    "0x2F0": {
+      "name": "FuelTrim",
+      "sender": "ECM",
+      "signals": [
+        {"name": "STFT_B1", "start_bit": 0, "length": 8, "factor": 0.78125, "offset": -100, "signed": false, "unit": "%"},
+        {"name": "LTFT_B1", "start_bit": 8, "length": 8, "factor": 0.78125, "offset": -100, "signed": false, "unit": "%"},
+        {"name": "STFT_B2", "start_bit": 16, "length": 8, "factor": 0.78125, "offset": -100, "signed": false, "unit": "%"},
+        {"name": "LTFT_B2", "start_bit": 24, "length": 8, "factor": 0.78125, "offset": -100, "signed": false, "unit": "%"}
+      ]
+    },
+    "0x3B0": {
+      "name": "BatteryStatus",
+      "sender": "BMS",
+      "signals": [
+        {"name": "PackVoltage", "start_bit": 0, "length": 16, "factor": 0.1, "offset": 0, "signed": false, "unit": "V"},
+        {"name": "PackCurrent", "start_bit": 16, "length": 16, "factor": 0.1, "offset": 0, "signed": true, "unit": "A"},
+        {"name": "SOC", "start_bit": 32, "length": 8, "factor": 0.5, "offset": 0, "signed": false, "unit": "%"},
+        {"name": "MaxCellTemp", "start_bit": 40, "length": 8, "factor": 1, "offset": -40, "signed": false, "unit": "degC"},
+        {"name": "CellVoltageSpread", "start_bit": 48, "length": 8, "factor": 0.01, "offset": 0, "signed": false, "unit": "V"}
+      ]
+    },
+    "0x5A0": {
+      "name": "BodyStatus",
+      "sender": "BCM",
+      "signals": [
+        {"name": "BatteryVoltage12V", "start_bit": 0, "length": 8, "factor": 0.1, "offset": 0, "signed": false, "unit": "V"},
+        {"name": "AmbientTemp", "start_bit": 8, "length": 8, "factor": 1, "offset": -40, "signed": false, "unit": "degC"}
+      ]
+    }
+  }
+}
