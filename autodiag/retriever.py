@@ -129,7 +129,7 @@ class Retriever:
     def _ranked(self, scores):
         return list(np.argsort(-scores, kind="stable"))
 
-    def search(self, query, k=4):
+    def search(self, query, k=4, include_dtc=True):
         if self.expand:
             query = expand_query(query)
         bm =self.bm25.scores(query)
@@ -144,7 +144,10 @@ class Retriever:
                 for rank, idx in enumerate(ranking):
                     fused[idx] += 1.0 / (self.rrf_k + rank + 1)
             order = self._ranked(fused)
-        return [self.chunks[i] for i in order[:k]]
+        hits = (self.chunks[i] for i in order)
+        if not include_dtc:
+            hits = (c for c in hits if not c.id.startswith("dtc:"))
+        return [c for _, c in zip(range(k), hits)]
 
 
 @lru_cache

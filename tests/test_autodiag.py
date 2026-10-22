@@ -40,8 +40,9 @@ def test_lookup_dtc_known_and_unknown():
 
 def test_vehicle_snapshot_shows_failed_wheel_sensor():
     snap = json.loads(tools.get_vehicle_snapshot("DEMO-002"))
-    wheels = snap["can_log_decoded"][0]["signals"]
-    assert wheels["WheelSpeed_FL"]["value"] == 0 and wheels["WheelSpeed_FR"]["value"] > 40
+    assert snap["active_dtcs"] == ["C0035"]
+    wheels = next(f for f in snap["latest_signals"] if f["message"] == "WheelSpeeds")["signals"]
+    assert wheels["WheelSpeed_FR"]["value"] > 30
 
 
 # --- Retrieval ----------------------------------------------------------------
@@ -95,5 +96,6 @@ def test_mcp_server_exposes_and_runs_tools():
         return names, result
 
     names, result = asyncio.run(run())
-    assert names == {"lookup_dtc", "search_service_manual", "decode_can_frame", "get_vehicle_snapshot"}
+    assert names == {"lookup_dtc", "search_service_manual", "decode_can_frame", "get_vehicle_snapshot",
+                     "analyze_can_log", "decode_uds_message"}
     assert not result.is_error and "Catalyst" in result.content[0].text

@@ -1,0 +1,82 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ABS BCM BMS ECM Tester
+
+
+BO_ 200 EngineData: 6 ECM
+ SG_ MAF : 32|16@1+ (0.01,0) [0|0] "g/s" Vector__XXX
+ SG_ ThrottlePos : 24|8@1+ (0.392157,0) [0|0] "%" Vector__XXX
+ SG_ CoolantTemp : 16|8@1+ (1,-40) [0|0] "degC" Vector__XXX
+ SG_ EngineRPM : 0|16@1+ (0.25,0) [0|0] "rpm" Vector__XXX
+
+BO_ 416 WheelSpeeds: 8 ABS
+ SG_ WheelSpeed_RR : 48|16@1+ (0.01,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeed_RL : 32|16@1+ (0.01,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeed_FR : 16|16@1+ (0.01,0) [0|0] "km/h" Vector__XXX
+ SG_ WheelSpeed_FL : 0|16@1+ (0.01,0) [0|0] "km/h" Vector__XXX
+
+BO_ 752 FuelTrim: 4 ECM
+ SG_ LTFT_B2 : 24|8@1+ (0.78125,-100) [0|0] "%" Vector__XXX
+ SG_ STFT_B2 : 16|8@1+ (0.78125,-100) [0|0] "%" Vector__XXX
+ SG_ LTFT_B1 : 8|8@1+ (0.78125,-100) [0|0] "%" Vector__XXX
+ SG_ STFT_B1 : 0|8@1+ (0.78125,-100) [0|0] "%" Vector__XXX
+
+BO_ 944 BatteryStatus: 7 BMS
+ SG_ CellVoltageSpread : 48|8@1+ (0.01,0) [0|0] "V" Vector__XXX
+ SG_ MaxCellTemp : 40|8@1+ (1,-40) [0|0] "degC" Vector__XXX
+ SG_ SOC : 32|8@1+ (0.5,0) [0|0] "%" Vector__XXX
+ SG_ PackCurrent : 16|16@1- (0.1,0) [0|0] "A" Vector__XXX
+ SG_ PackVoltage : 0|16@1+ (0.1,0) [0|0] "V" Vector__XXX
+
+BO_ 1440 BodyStatus: 2 BCM
+ SG_ AmbientTemp : 8|8@1+ (1,-40) [0|0] "degC" Vector__XXX
+ SG_ BatteryVoltage12V : 0|8@1+ (0.1,0) [0|0] "V" Vector__XXX
+
+
+
+
+
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 200 100;
+BA_ "GenMsgCycleTime" BO_ 416 100;
+BA_ "GenMsgCycleTime" BO_ 752 100;
+BA_ "GenMsgCycleTime" BO_ 944 100;
+BA_ "GenMsgCycleTime" BO_ 1440 100;
+
+
+
+
