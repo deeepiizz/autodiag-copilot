@@ -1,0 +1,9 @@
+{
+  "offline": {
+    "citation_validity": 1.0,
+    "dtc_recall": 1.0,
+    "refusal_correct": 1.0,
+    "source_recall": 0.944,
+    "warning_correct": 1.0
+  }
+}

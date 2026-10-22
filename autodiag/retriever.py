@@ -113,41 +113,82 @@ class BM25:
 
 
 class Retriever:
-    """mode = "bm25" | "tfidf" | "hybrid" (reciprocal-rank fusion of both).
+    """Sparse, dense and hybrid retrieval over the knowledge base.
 
-    expand=True adds glossary synonyms to the query before searching.
+    mode:
+        "bm25", "tfidf"            sparse lexical retrieval
+        "lsa", "st"                dense: LSA concepts or sentence-transformer embeddings
+        "hybrid"                   BM25 + TF-IDF fused with reciprocal-rank fusion (RRF)
+        "hybrid+lsa", "hybrid+st"  BM25 + TF-IDF + a dense retriever, fused with RRF
+    expand: add glossary synonyms to the query first.
+    rerank: re-order the top `rerank_depth` candidates with a cross-encoder (needs the dense extras).
     """
 
-    def __init__(self, chunks=None, mode="hybrid", expand=True, rrf_k=60):
+    COMPONENTS = {"bm25": ["bm25"], "tfidf": ["tfidf"], "lsa": ["lsa"], "st": ["st"],
+                  "hybrid": ["bm25", "tfidf"], "hybrid+lsa": ["bm25", "tfidf", "lsa"],
+                  "hybrid+st": ["bm25", "tfidf", "st"]}
+
+    def __init__(self, chunks=None, mode="hybrid", expand=True, rerank=False, rerank_depth=20, rrf_k=60):
+        if mode not in self.COMPONENTS:
+            raise ValueError(f"unknown mode {mode!r}; choose from {', '.join(self.COMPONENTS)}")
         self.chunks = chunks or load_chunks()
-        self.mode, self.expand, self.rrf_k = mode, expand, rrf_k
+        self.mode, self.expand, self.rrf_k, self.rerank_depth = mode, expand, rrf_k, rerank_depth
         texts = [f"{c.title} {c.text}" for c in self.chunks]
-        self.bm25 = BM25(texts)
-        self.tfidf = TfidfVectorizer(tokenizer=tokenize, token_pattern=None, ngram_range=(1, 2), sublinear_tf=True)
-        self.matrix = self.tfidf.fit_transform(texts)
+        parts = self.COMPONENTS[mode]
+        if "bm25" in parts:
+            self.bm25 = BM25(texts)
+        if "tfidf" in parts:
+            self.tfidf = TfidfVectorizer(tokenizer=tokenize, token_pattern=None, ngram_range=(1, 2), sublinear_tf=True)
+            self.matrix = self.tfidf.fit_transform(texts)
+        if "lsa" in parts or "st" in parts:
+            from . import dense
+            self.encoder = (dense.LSAEncoder() if "lsa" in parts else dense.SentenceTransformerEncoder()).fit(texts)
+            self.embeddings = self.encoder.encode(texts)
+        self.reranker = None
+        if rerank:
+            from .dense import CrossEncoderReranker
+            self.reranker = CrossEncoderReranker()
 
     def _ranked(self, scores):
         return list(np.argsort(-scores, kind="stable"))
 
+    def _scores(self, part, query):
+        if part == "bm25":
+            return self.bm25.scores(query)
+        if part == "tfidf":
+            return (self.matrix @ self.tfidf.transform([query]).T).toarray().ravel()
+        return self.embeddings @ self.encoder.encode([query])[0]
+
     def search(self, query, k=4, include_dtc=True):
+        original = query
         if self.expand:
             query = expand_query(query)
-        bm =self.bm25.scores(query)
-        tf = (self.matrix @ self.tfidf.transform([query]).T).toarray().ravel()
-        if self.mode == "bm25":
-            order = self._ranked(bm)
-        elif self.mode == "tfidf":
-            order = self._ranked(tf)
+        rankings = [self._ranked(self._scores(part, query)) for part in self.COMPONENTS[self.mode]]
+        if len(rankings) == 1:
+            order = rankings[0]
         else:
             fused = np.zeros(len(self.chunks))
-            for ranking in (self._ranked(bm), self._ranked(tf)):
+            for ranking in rankings:
                 for rank, idx in enumerate(ranking):
                     fused[idx] += 1.0 / (self.rrf_k + rank + 1)
             order = self._ranked(fused)
-        hits = (self.chunks[i] for i in order)
+        hits = [self.chunks[i] for i in order]
         if not include_dtc:
-            hits = (c for c in hits if not c.id.startswith("dtc:"))
-        return [c for _, c in zip(range(k), hits)]
+            hits = [c for c in hits if not c.id.startswith("dtc:")]
+        if self.reranker:
+            # The cross-encoder reads natural language, so it gets the unexpanded query.
+            hits = self.reranker.rerank(original, hits[:self.rerank_depth]) + hits[self.rerank_depth:]
+        return hits[:k]
+
+
+def _st_available():
+    from .dense import sentence_transformers_available
+    return sentence_transformers_available()
+
+
+# Retrieval modes and whether each can run in this environment.
+MODES = {"bm25": lambda: True, "tfidf": lambda: True, "lsa": lambda: True, "hybrid": lambda: True,
+         "hybrid+lsa": lambda: True, "st": _st_available, "hybrid+st": _st_available}
 
 
 @lru_cache

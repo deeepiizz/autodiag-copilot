@@ -24,7 +24,7 @@ CITATION_RE = re.compile(r"\[([a-z0-9_]+#[a-z0-9-]+|dtc:[A-Z0-9]+|log:DEMO-\d{3}
 
 SYSTEM_PROMPT = """You are AutoDiag, a diagnostic assistant for automotive technicians.
 
-Use the tools to gather evidence before answering. When a vehicle ID is given, read its snapshot (DTCs come from a UDS read) and analyse its CAN log for anomalies. Look up every DTC, and search the service manual for test procedures.
+Use the tools to gather evidence before answering. When a vehicle ID is given, read its snapshot (DTCs come from a UDS read) and analyse its CAN log for anomalies; relate anomalies in time to each other (e.g. a voltage dip and a module going silent). Look up every DTC, decode raw CAN or UDS data the technician pastes, and search the service manual (include_dtc=false) for test procedures.
 
 Ground every technical claim in tool output and cite sources in square brackets using the `source` field, e.g. [fuel_trim_lean_rich#diagnosing-a-lean-code-p0171-p0174] or [dtc:P0171]. Cite CAN log findings as [log:DEMO-002]. If the knowledge base does not cover something, say so rather than guessing.
 

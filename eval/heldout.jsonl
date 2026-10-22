@@ -1,0 +1,30 @@
+{"q": "Engine shakes at idle and the light blinks, can I keep driving to the shop?", "relevant": ["misfire_diagnosis#symptoms"]}
+{"q": "Moved the coil from cylinder 3 to cylinder 2 and the misfire moved too, what now?", "relevant": ["misfire_diagnosis#isolating-the-cylinder"]}
+{"q": "Spark plug from one cylinder is soaked in fuel", "relevant": ["misfire_diagnosis#spark-plug-inspection"]}
+{"q": "One cylinder has 20 percent less compression than the rest", "relevant": ["misfire_diagnosis#compression-and-mechanical-checks"]}
+{"q": "Leak-down test procedure to find a burnt valve", "relevant": ["misfire_diagnosis#compression-and-mechanical-checks"]}
+{"q": "Long term trim is plus 15 on both banks at every rpm", "relevant": ["fuel_trim_lean_rich#diagnosing-a-lean-code-p0171-p0174"]}
+{"q": "What is the difference between short term and long term fuel trim?", "relevant": ["fuel_trim_lean_rich#how-fuel-trim-works"]}
+{"q": "Hissing noise from the brake booster hose and a lean code", "relevant": ["fuel_trim_lean_rich#finding-vacuum-leaks", "fuel_trim_lean_rich#diagnosing-a-lean-code-p0171-p0174"]}
+{"q": "Airflow meter reads too low grams per second at idle", "relevant": ["fuel_trim_lean_rich#maf-sensor-contamination"]}
+{"q": "Injector leaking causing black smoke and rich mixture", "relevant": ["fuel_trim_lean_rich#diagnosing-a-rich-code-p0172", "dtc:P0172"]}
+{"q": "Rear O2 sensor signal is flat at 0.6 volts, is that good?", "relevant": ["catalyst_o2_sensors#upstream-vs-downstream-sensors"]}
+{"q": "Should I replace the catalytic converter for a catalyst efficiency code on bank 1?", "relevant": ["catalyst_o2_sensors#catalyst-efficiency-p0420", "dtc:P0420"]}
+{"q": "Front oxygen sensor stuck below 0.2 volts", "relevant": ["catalyst_o2_sensors#o2-sensor-response-tests", "dtc:P0131"]}
+{"q": "Fuel cap does not click when tightening", "relevant": ["evap_system#leak-codes"]}
+{"q": "How does the charcoal canister purge system work?", "relevant": ["evap_system#system-overview"]}
+{"q": "Purge solenoid stuck open symptoms", "relevant": ["evap_system#purge-and-vent-valves"]}
+{"q": "Measured zero ohms between pins 6 and 14 of the OBD port", "relevant": ["can_bus_diagnostics#termination-check"]}
+{"q": "CAN high line measures 12 volts with ignition on", "relevant": ["can_bus_diagnostics#voltage-check"]}
+{"q": "A module's periodic message disappears from the bus trace", "relevant": ["can_bus_diagnostics#using-frame-logs"]}
+{"q": "Scan tool shows no communication with the transmission control module", "relevant": ["dtc:U0101", "can_bus_diagnostics#lost-communication-codes"]}
+{"q": "What bitrate does high speed CAN use and how many data bytes per frame?", "relevant": ["can_bus_diagnostics#bus-basics"]}
+{"q": "ABS warning intermittent over bumps, sensor wire near the hub", "relevant": ["abs_wheel_speed#sensor-and-tone-ring-inspection"]}
+{"q": "Cracked reluctor ring on the right front hub", "relevant": ["abs_wheel_speed#sensor-and-tone-ring-inspection", "dtc:C0040"]}
+{"q": "How long should I wait after pulling the service plug on a hybrid?", "relevant": ["hv_battery_safety#safety-first"]}
+{"q": "Coolant found inside the inverter housing on an electric car", "relevant": ["hv_battery_safety#isolation-faults-p0aa6"]}
+{"q": "Battery pack temperature reaches 60 C on a normal commute", "relevant": ["hv_battery_safety#reading-pack-data"]}
+{"q": "Car battery reads 12.6 volts overnight but cranks slowly", "relevant": ["charging_system#battery-test", "charging_system#alternator-output"]}
+{"q": "Voltage drop test on battery cables while cranking", "relevant": ["charging_system#alternator-output"]}
+{"q": "Transmission control requested the MIL, where do I look?", "relevant": ["dtc:P0700"]}
+{"q": "Idle speed hunts up and down after cleaning the throttle body", "relevant": ["dtc:P0505"]}

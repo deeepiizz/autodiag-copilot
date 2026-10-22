@@ -1,0 +1,4 @@
+# Optional neural retrieval: sentence-transformer embeddings and a cross-encoder reranker.
+# Pulls in PyTorch and downloads models from huggingface.co on first use.
+-r requirements.txt
+sentence-transformers>=3.0
